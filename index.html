@@ -52,15 +52,18 @@
         margin-top: 30px;
     }
 
-    .categories ul {
-        list-style-type: none;
-        padding: 0;
+    .categories select {
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 1em;
+        outline: none;
     }
 
-    .categories ul li{
-        display: inline;
-        margin-right: 10px;
+    .categories select:focus {
+        border-color: #2196F3;
     }
+
 </style>
 </head>
 <body>
@@ -68,12 +71,12 @@
     <h1>Добро пожаловать на CheatsPack 🎮</h1>
     <p>Здесь вы найдете самые актуальные читы и хитрости для ваших любимых игр!</p>
     <div class="categories">
-        <h3>Категории:</h3>
-        <ul>
-            <li>Minecraft</li>
-            <li>CS:GO</li>
-            <li>CS 1.6</li>
-        </ul>
+        <h3>Выберите категорию игры:</h3>
+        <select>
+            <option value="minecraft">Minecraft</option>
+            <option value="csgo">CS:GO</option>
+            <option value="cs2">CS 1.6</option>
+        </select>
     </div>
 </div>
 
