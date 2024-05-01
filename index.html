@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ru">
-<html>
 <head>
 <title>CheatsPack 🎮: Обманывай мир с улыбкой 😏🎮</title>
 <script>
@@ -13,16 +12,16 @@
 
                 // Проверяем, является ли страна пользователя членом Европейского союза
                 if (userCountry === 'EU') {
-                    window.location.href = 'eu-blocked.html'; // Redirect users from the EU
+                    window.location.href = 'eu-blocked.html'; // Перенаправляем пользователей из ЕС
                 } else if (userCountry === 'TR') {
-                    window.location.href = 'tr-blocked.html'; // Redirect users from Turkey
+                    window.location.href = 'tr-blocked.html'; // Перенаправляем пользователей из Турции
                 }
             });
     }
 
     // Вызываем функцию при загрузке страницы
     window.onload = checkCountry;
-</script> 
+</script>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -48,12 +47,34 @@
     p {
         font-size: 1.2em;
     }
+
+    .categories {
+        margin-top: 30px;
+    }
+
+    .categories ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .categories ul li{
+        display: inline;
+        margin-right: 10px;
+    }
 </style>
 </head>
 <body>
 <div>
     <h1>Добро пожаловать на CheatsPack 🎮</h1>
     <p>Здесь вы найдете самые актуальные читы и хитрости для ваших любимых игр!</p>
+    <div class="categories">
+        <h3>Категории:</h3>
+        <ul>
+            <li>Minecraft</li>
+            <li>CS:GO</li>
+            <li>CS 1.6</li>
+        </ul>
+    </div>
 </div>
 
 <!-- Дополнительное содержимое сайта можно добавить здесь -->
