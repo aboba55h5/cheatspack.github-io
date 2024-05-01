@@ -21,6 +21,18 @@
 
     // Вызываем функцию при загрузке страницы
     window.onload = checkCountry;
+
+    // Функция для отображения версии Minecraft при выборе категории
+    function showVersionOptions() {
+        const category = document.getElementById('category').value; // Получаем выбранную категорию
+        const versionSelect = document.getElementById('versionSelect');
+
+        if (category === 'minecraft') {
+            versionSelect.style.display = 'block'; // Показываем окно выбора версии для Minecraft
+        } else {
+            versionSelect.style.display = 'none'; // Скрываем окно выбора версии
+        }
+    }
 </script>
 <style>
     body {
@@ -64,6 +76,15 @@
         border-color: #2196F3;
     }
 
+    .versionSelect {
+        display: none;
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
 </style>
 </head>
 <body>
@@ -72,10 +93,20 @@
     <p>Здесь вы найдете самые актуальные читы и хитрости для ваших любимых игр!</p>
     <div class="categories">
         <h3>Выберите категорию игры:</h3>
-        <select>
+        <select id="category" onchange="showVersionOptions()">
+            <option value="">Выберите категорию</option>
             <option value="minecraft">Minecraft</option>
             <option value="csgo">CS:GO</option>
             <option value="cs2">CS 1.6</option>
+        </select>
+    </div>
+    <div class="versionSelect" id="versionSelect">
+        <h3>Выберите версию Minecraft:</h3>
+        <select>
+            <option value="1.8.9">1.8.9</option>
+            <option value="1.12.2">1.12.2</option>
+            <option value="1.16.5">1.16.5</option>
+            <option value="1.20.4">1.20.4</option>
         </select>
     </div>
 </div>
