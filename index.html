@@ -3,38 +3,41 @@
 <head>
 <title>CheatsPack 🎮: Обманывай мир с улыбкой 😏🎮</title>
 <script>
-    // Функция для проверки страны пользователя
     function checkCountry() {
-        fetch('https://ipapi.co/json/') // Получаем информацию о местоположении пользователя
+        fetch('https://ipapi.co/json/')
             .then(response => response.json())
             .then(data => {
                 const userCountry = data.country;
 
-                // Проверяем, является ли страна пользователя членом Европейского союза
                 if (userCountry === 'EU') {
-                    window.location.href = 'eu-blocked.html'; // Перенаправляем пользователей из ЕС
+                    window.location.href = 'eu-blocked.html';
                 } else if (userCountry === 'TR') {
-                    window.location.href = 'tr-blocked.html'; // Перенаправляем пользователей из Турции
+                    window.location.href = 'tr-blocked.html';
                 }
             });
     }
 
-    // Вызываем функцию при загрузке страницы
-    window.onload = checkCountry;
+    window.onload = () => {
+        document.body.classList.add('loaded');
+        checkCountry();
+    };
 
-    // Функция для отображения версии Minecraft при выборе категории
     function showVersionOptions() {
-        const category = document.getElementById('category').value; // Получаем выбранную категорию
+        const category = document.getElementById('category').value;
         const versionSelect = document.getElementById('versionSelect');
 
         if (category === 'minecraft') {
-            versionSelect.style.display = 'block'; // Показываем окно выбора версии для Minecraft
+            versionSelect.style.display = 'block';
+            versionSelect.classList.add('fadeIn');
         } else {
-            versionSelect.style.display = 'none'; // Скрываем окно выбора версии
+            versionSelect.style.display = 'none';
         }
     }
 </script>
 <style>
+    /* Подключаем библиотеку анимаций Animate.css */
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
     body {
         font-family: Arial, sans-serif;
         background-color: #f9f9f9;
@@ -50,10 +53,12 @@
         background-color: #fff;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
     }
 
     h1 {
         color: #333;
+        transition: color 0.3s;
     }
 
     p {
@@ -63,27 +68,50 @@
     .categories {
         display: inline-block;
         margin-top: 30px;
+        transition: margin-top 0.3s;
     }
 
     .categories select {
         padding: 10px;
-        border: 2px solid #ccc;
+        border: 2px solid #2196F3;
         border-radius: 10px;
         font-size: 1em;
         outline: none;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s;
     }
 
     .categories select:focus {
-        border-color: #2196F3;
+        border-color: #ffbf00;
     }
 
     .versionSelect {
         display: none;
         margin-left: 20px;
         padding: 10px;
-        background-color: #f9f9f9;
-        border: 2px solid #ccc;
+        background-color: #fff;
+        border: 2px solid #2196F3;
         border-radius: 10px;
+        transition: all 0.5s;
+    }
+
+    .fadeIn {
+        animation: fadeInAnimation 1s infinite;
+    }
+
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 </style>
 </head>
@@ -104,18 +132,7 @@
         <h3>Выберите версию Minecraft:</h3>
         <select>
             <option value="1.8.9">1.8.9</option>
-            <option value="1.9.0">1.9.0</option>
-            <option value="1.10.0">1.10.0</option>
-            <option value="1.11.0">1.11.0</option>
-            <option value="1.12.2">1.12.2</option>
-            <option value="1.13.2">1.13.2</option>
-            <option value="1.14.4">1.14.4</option>
-            <option value="1.15.2">1.15.2</option>
-            <option value="1.16.5">1.16.5</option>
-            <option value="1.17.1">1.17.1</option>
-            <option value="1.18.1">1.18.1</option>
-            <option value="1.19.2">1.19.2</option>
-            <option value="1.20.4">1.20.4</option>
+            <!-- Добавьте другие версии здесь -->
         </select>
     </div>
 </div>
