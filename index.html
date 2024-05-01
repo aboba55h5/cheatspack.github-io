@@ -13,8 +13,9 @@
 
                 // Проверяем, является ли страна пользователя членом Европейского союза
                 if (userCountry === 'EU') {
-                    // Если это страна Европейского союза, перенаправляем пользователя на другую страницу
-                    window.location.href = 'eu-blocked.html'; // путь к странице с сообщением о блокировке
+                    window.location.href = 'eu-blocked.html'; // Redirect users from the EU
+                } else if (userCountry === 'TR') {
+                    window.location.href = 'tr-blocked.html'; // Redirect users from Turkey
                 }
             });
     }
